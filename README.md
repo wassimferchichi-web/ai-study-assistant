@@ -1,5 +1,5 @@
 # 🎓 AI Study Assistant
-## 🎬 Demo
+
 
 
 
