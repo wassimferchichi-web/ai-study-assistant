@@ -1,4 +1,10 @@
 # 🎓 AI Study Assistant
+## 🎬 Demo
+
+
+
+
+
 
 <div align="center">
 
