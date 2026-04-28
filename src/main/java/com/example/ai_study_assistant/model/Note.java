@@ -17,6 +17,10 @@ public class Note {
     @Column(columnDefinition = "TEXT")
     private String content;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public Note() {}
 
     public Long getId() { return id; }
@@ -27,4 +31,7 @@ public class Note {
 
     public String getContent() { return content; }
     public void setContent(String content) { this.content = content; }
+
+    public User getUser() { return user; }
+    public void setUser(User user) { this.user = user; }
 }
