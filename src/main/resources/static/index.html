@@ -242,7 +242,7 @@
 <div class="toast-container" id="toast-container"></div>
 
 <script>
-    const API = 'http://localhost:8080/api';
+    const API = window.location.hostname === 'localhost' ? 'http://localhost:8080/api' : '/api';
     let chatContext = '';
 
     function showPanel(name) {
