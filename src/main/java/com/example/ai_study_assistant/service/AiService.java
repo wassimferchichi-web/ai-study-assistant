@@ -9,6 +9,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class AiService {
@@ -18,16 +20,9 @@ public class AiService {
 
     private final HttpClient httpClient = HttpClient.newHttpClient();
 
-    private String callGroq(String prompt) {
+    private String callGroq(JSONArray messages) {
         try {
             String url = "https://api.groq.com/openai/v1/chat/completions";
-
-            JSONObject message = new JSONObject();
-            message.put("role", "user");
-            message.put("content", prompt);
-
-            JSONArray messages = new JSONArray();
-            messages.put(message);
 
             JSONObject body = new JSONObject();
             body.put("model", "llama-3.1-8b-instant");
@@ -45,16 +40,12 @@ public class AiService {
                     .send(request, HttpResponse.BodyHandlers.ofString());
 
             String rawBody = response.body();
-            System.out.println("Groq raw response: " + rawBody);
+            System.out.println("Groq response: " + rawBody);
 
             JSONObject json = new JSONObject(rawBody);
+            if (!json.has("choices")) return "AI error: " + rawBody;
 
-            if (!json.has("choices")) {
-                return "AI error: " + rawBody;
-            }
-
-            return json
-                    .getJSONArray("choices")
+            return json.getJSONArray("choices")
                     .getJSONObject(0)
                     .getJSONObject("message")
                     .getString("content");
@@ -64,27 +55,76 @@ public class AiService {
         }
     }
 
+    private String callGroqSingle(String prompt) {
+        JSONArray messages = new JSONArray();
+        JSONObject msg = new JSONObject();
+        msg.put("role", "user");
+        msg.put("content", prompt);
+        messages.put(msg);
+        return callGroq(messages);
+    }
+
     public String summarize(String noteContent) {
         String shortContent = noteContent.substring(0, Math.min(noteContent.length(), 800));
-        String prompt = "Summarize this note briefly with key points and important terms:\n" + shortContent;
-        return callGroq(prompt);
+        return callGroqSingle("Summarize this note with key points and important terms:\n" + shortContent);
     }
 
     public String generateQuiz(String noteContent) {
         String shortContent = noteContent.substring(0, Math.min(noteContent.length(), 800));
-        String prompt = "Generate 10 quiz questions with 4 multiple choice options (A,B,C,D), "
-                + "the correct answer, and a brief explanation for each. "
-                + "Format each question clearly numbered 1-10.\n\n"
-                + "Based on this content:\n" + shortContent;
-        return callGroq(prompt);
+        String prompt = "Generate exactly 5 quiz questions based on this content.\n"
+                + "Return ONLY a valid JSON array, no extra text, no markdown.\n"
+                + "Format:\n"
+                + "[\n"
+                + "  {\n"
+                + "    \"question\": \"question text\",\n"
+                + "    \"options\": [\"A. option1\", \"B. option2\", \"C. option3\", \"D. option4\"],\n"
+                + "    \"answer\": \"A\",\n"
+                + "    \"explanation\": \"brief explanation\"\n"
+                + "  }\n"
+                + "]\n\n"
+                + "Content:\n" + shortContent;
+        return callGroqSingle(prompt);
     }
 
-    public String chat(String userMessage, String context) {
-        String prompt = context.isEmpty()
-                ? "You are a helpful study assistant. Answer this question clearly and concisely:\n" + userMessage
-                : "You are a helpful study assistant. Use this context to answer the question.\n\n"
-                + "Context:\n" + context.substring(0, Math.min(context.length(), 600)) + "\n\n"
-                + "Question: " + userMessage;
-        return callGroq(prompt);
+    public String checkAnswer(String question, String options, String userAnswer, String correctAnswer, String explanation) {
+        String prompt = "The student answered a quiz question.\n\n"
+                + "Question: " + question + "\n"
+                + "Options: " + options + "\n"
+                + "Student's answer: " + userAnswer + "\n"
+                + "Correct answer: " + correctAnswer + "\n"
+                + "Explanation: " + explanation + "\n\n"
+                + "Tell the student if they are correct or wrong. "
+                + "If wrong, explain why the correct answer is right. Keep it brief and encouraging.";
+        return callGroqSingle(prompt);
+    }
+
+    public String chat(String userMessage, String context, List<Map<String, String>> history) {
+        JSONArray messages = new JSONArray();
+
+        // System message
+        JSONObject system = new JSONObject();
+        system.put("role", "system");
+        system.put("content", context.isEmpty()
+                ? "You are a helpful study assistant. Answer clearly and concisely. Remember the full conversation."
+                : "You are a helpful study assistant. Use this context to answer questions:\n\n" + context.substring(0, Math.min(context.length(), 600)));
+        messages.put(system);
+
+        // Add conversation history (last 10 messages for memory)
+        int start = Math.max(0, history.size() - 10);
+        for (int i = start; i < history.size(); i++) {
+            Map<String, String> h = history.get(i);
+            JSONObject msg = new JSONObject();
+            msg.put("role", h.get("role"));
+            msg.put("content", h.get("content"));
+            messages.put(msg);
+        }
+
+        // Add current message
+        JSONObject current = new JSONObject();
+        current.put("role", "user");
+        current.put("content", userMessage);
+        messages.put(current);
+
+        return callGroq(messages);
     }
 }

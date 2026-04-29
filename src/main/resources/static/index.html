@@ -11,79 +11,24 @@
             --bg: #0a0a0f; --surface: #111118; --surface2: #18181f;
             --border: #2a2a38; --accent: #c8f060; --accent2: #7c6af7;
             --text: #f0f0f8; --muted: #6b6b82; --danger: #f06060;
+            --success: #60f080;
         }
         body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; min-height: 100vh; overflow-x: hidden; }
 
-        /* ── Auth Screen ── */
-        .auth-screen {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        .auth-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 48px;
-            width: 100%;
-            max-width: 440px;
-        }
-        .auth-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 900;
-            color: var(--accent);
-            margin-bottom: 8px;
-            text-align: center;
-        }
-        .auth-subtitle {
-            font-size: 13px;
-            color: var(--muted);
-            text-align: center;
-            margin-bottom: 36px;
-        }
-        .auth-tabs {
-            display: flex;
-            background: var(--surface2);
-            border-radius: 10px;
-            padding: 4px;
-            margin-bottom: 28px;
-        }
-        .auth-tab {
-            flex: 1;
-            padding: 10px;
-            text-align: center;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--muted);
-            border: none;
-            background: none;
-            font-family: 'DM Sans', sans-serif;
-            transition: all 0.2s;
-        }
-        .auth-tab.active {
-            background: var(--accent2);
-            color: white;
-        }
+        /* ── Auth ── */
+        .auth-screen { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+        .auth-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 48px; width: 100%; max-width: 440px; }
+        .auth-logo { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--accent); margin-bottom: 8px; text-align: center; }
+        .auth-subtitle { font-size: 13px; color: var(--muted); text-align: center; margin-bottom: 36px; }
+        .auth-tabs { display: flex; background: var(--surface2); border-radius: 10px; padding: 4px; margin-bottom: 28px; }
+        .auth-tab { flex: 1; padding: 10px; text-align: center; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; color: var(--muted); border: none; background: none; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
+        .auth-tab.active { background: var(--accent2); color: white; }
         .auth-form { display: none; }
         .auth-form.active { display: block; }
-        .auth-error {
-            background: rgba(240,96,96,0.1);
-            border: 1px solid var(--danger);
-            border-radius: 8px;
-            padding: 10px 14px;
-            font-size: 13px;
-            color: var(--danger);
-            margin-bottom: 16px;
-            display: none;
-        }
+        .auth-error { background: rgba(240,96,96,0.1); border: 1px solid var(--danger); border-radius: 8px; padding: 10px 14px; font-size: 13px; color: var(--danger); margin-bottom: 16px; display: none; }
         .auth-error.visible { display: block; }
 
-        /* ── App Shell ── */
+        /* ── Shell ── */
         .shell { display: none; grid-template-columns: 260px 1fr; min-height: 100vh; }
         .shell.visible { display: grid; }
         .sidebar { background: var(--surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; padding: 32px 20px; gap: 8px; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
@@ -94,12 +39,12 @@
         .nav-btn { background: none; border: none; color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 10px 12px; border-radius: 8px; cursor: pointer; text-align: left; display: flex; align-items: center; gap: 10px; transition: all 0.2s; width: 100%; }
         .nav-btn:hover { background: var(--surface2); color: var(--text); }
         .nav-btn.active { background: var(--surface2); color: var(--accent); }
-        .sidebar-footer { margin-top: auto; padding: 16px 8px 0; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); line-height: 1.6; }
         .user-info { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 12px; margin-bottom: 8px; font-size: 13px; }
         .user-name { font-weight: 600; color: var(--text); margin-bottom: 2px; }
         .user-email { font-size: 11px; color: var(--muted); }
         .btn-logout { width: 100%; background: transparent; border: 1px solid var(--danger); color: var(--danger); font-family: 'DM Sans', sans-serif; font-size: 13px; padding: 8px 12px; border-radius: 8px; cursor: pointer; margin-top: 8px; transition: all 0.2s; }
         .btn-logout:hover { background: rgba(240,96,96,0.1); }
+        .sidebar-footer { margin-top: auto; padding: 16px 8px 0; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); line-height: 1.6; }
         .main { display: flex; flex-direction: column; min-height: 100vh; }
         .topbar { padding: 24px 40px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--bg); position: sticky; top: 0; z-index: 10; }
         .page-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; }
@@ -110,7 +55,7 @@
         .panel.active { display: block; }
         @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
         .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 24px; }
-        .card-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .card-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin-bottom: 20px; }
         label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 8px; font-weight: 500; }
         input[type="text"], input[type="email"], input[type="password"], textarea, select { width: 100%; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 12px 16px; outline: none; transition: border-color 0.2s; margin-bottom: 20px; }
         input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus, select:focus { border-color: var(--accent2); box-shadow: 0 0 0 3px rgba(124,106,247,0.15); }
@@ -128,6 +73,8 @@
         .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
         .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
         .btn-full { width: 100%; justify-content: center; }
+
+        /* ── Notes Grid ── */
         .notes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
         .note-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px; transition: all 0.2s; position: relative; overflow: hidden; }
         .note-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--accent2),var(--accent)); opacity:0; transition:opacity 0.2s; }
@@ -137,36 +84,79 @@
         .note-card-content { font-size: 13px; color: var(--muted); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
         .note-card-footer { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
         .note-card-footer .btn { padding: 7px 14px; font-size: 12px; border-radius: 7px; }
+
+        /* ── AI Response ── */
         .ai-response { background: var(--surface2); border: 1px solid var(--border); border-left: 3px solid var(--accent2); border-radius: 12px; padding: 24px; margin-top: 20px; display: none; animation: fadeIn 0.4s ease; }
         .ai-response.visible { display: block; }
         .ai-response-header { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent2); font-weight: 500; margin-bottom: 16px; }
         .ai-response-body { font-size: 14px; line-height: 1.8; color: var(--text); white-space: pre-wrap; }
+
+        /* ── Quiz ── */
+        .quiz-container { margin-top: 20px; display: none; }
+        .quiz-container.visible { display: block; }
+        .quiz-progress { font-size: 12px; color: var(--muted); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .quiz-score { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 20px; display: flex; gap: 24px; }
+        .score-item { text-align: center; }
+        .score-number { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; line-height: 1; }
+        .score-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+        .question-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 14px; padding: 28px; margin-bottom: 16px; }
+        .question-text { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; margin-bottom: 20px; line-height: 1.5; }
+        .options-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+        .option-btn { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text); text-align: left; transition: all 0.2s; }
+        .option-btn:hover:not(:disabled) { border-color: var(--accent2); background: rgba(124,106,247,0.08); }
+        .option-btn.selected { border-color: var(--accent2); background: rgba(124,106,247,0.15); color: var(--accent2); }
+        .option-btn.correct { border-color: var(--success); background: rgba(96,240,128,0.1); color: var(--success); }
+        .option-btn.wrong { border-color: var(--danger); background: rgba(240,96,96,0.1); color: var(--danger); }
+        .option-btn:disabled { cursor: default; }
+        .feedback-box { border-radius: 10px; padding: 16px; font-size: 14px; line-height: 1.6; margin-bottom: 16px; display: none; white-space: pre-wrap; }
+        .feedback-box.correct { background: rgba(96,240,128,0.08); border: 1px solid var(--success); color: var(--success); display: block; }
+        .feedback-box.wrong { background: rgba(240,96,96,0.08); border: 1px solid var(--danger); color: var(--text); display: block; }
+        .quiz-nav { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+        .quiz-final { background: var(--surface2); border: 1px solid var(--border); border-radius: 14px; padding: 40px; text-align: center; display: none; }
+        .quiz-final.visible { display: block; }
+        .quiz-final-score { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 900; color: var(--accent); }
+        .quiz-final-label { font-size: 16px; color: var(--muted); margin-top: 8px; margin-bottom: 24px; }
+
+        /* ── Spinner ── */
         .spinner { width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.2); border-top-color: currentColor; border-radius: 50%; animation: spin 0.6s linear infinite; display: none; }
         .spinner.visible { display: inline-block; }
         @keyframes spin { to{transform:rotate(360deg)} }
+
+        /* ── Empty state ── */
         .empty-state { text-align: center; padding: 60px 20px; color: var(--muted); }
         .empty-state-icon { font-size: 48px; margin-bottom: 16px; }
         .empty-state h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--text); margin-bottom: 8px; }
+
+        /* ── Stats ── */
         .stats-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 32px; }
         .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px; text-align: center; }
         .stat-number { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 8px; }
         .stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
-        .chat-box { display: flex; flex-direction: column; height: 500px; background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+
+        /* ── Chat ── */
+        .chat-box { display: flex; flex-direction: column; height: 520px; background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
         .chat-messages { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
         .chat-msg { max-width: 80%; padding: 12px 16px; border-radius: 12px; font-size: 14px; line-height: 1.6; }
         .chat-msg.user { background: var(--accent2); color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
         .chat-msg.ai { background: var(--surface); border: 1px solid var(--border); align-self: flex-start; border-bottom-left-radius: 4px; white-space: pre-wrap; }
+        .chat-memory-badge { font-size: 11px; color: var(--muted); text-align: center; padding: 4px; border-top: 1px solid var(--border); background: var(--surface); }
         .chat-input-row { display: flex; gap: 12px; padding: 16px; border-top: 1px solid var(--border); background: var(--surface); }
         .chat-input { flex: 1; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 12px 16px; outline: none; resize: none; height: 48px; }
         .chat-input:focus { border-color: var(--accent2); }
         .chat-send { background: var(--accent2); color: white; border: none; border-radius: 10px; padding: 12px 20px; cursor: pointer; font-size: 18px; transition: all 0.2s; }
         .chat-send:hover { background: #9580ff; transform: translateY(-1px); }
+        .chat-clear { background: transparent; border: 1px solid var(--border); color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 12px; padding: 6px 12px; border-radius: 8px; cursor: pointer; transition: all 0.2s; }
+        .chat-clear:hover { border-color: var(--danger); color: var(--danger); }
+
+        /* ── Upload ── */
         .upload-zone { border: 2px dashed var(--border); border-radius: 14px; padding: 48px; text-align: center; cursor: pointer; transition: all 0.2s; margin-bottom: 20px; }
         .upload-zone:hover, .upload-zone.dragover { border-color: var(--accent2); background: rgba(124,106,247,0.05); }
         .upload-icon { font-size: 48px; margin-bottom: 16px; }
         .upload-title { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 8px; }
         .upload-sub { font-size: 13px; color: var(--muted); }
         #file-input { display: none; }
+
+        /* ── Toast ── */
         .toast-container { position: fixed; bottom: 24px; right: 24px; display: flex; flex-direction: column; gap: 8px; z-index: 1000; }
         .toast { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 12px 20px; font-size: 13px; color: var(--text); animation: slideIn 0.3s ease; display: flex; align-items: center; gap: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
         .toast.success { border-left: 3px solid var(--accent); }
@@ -181,13 +171,10 @@
     <div class="auth-card">
         <div class="auth-logo">StudyMate AI</div>
         <div class="auth-subtitle">Your personal AI-powered study assistant</div>
-
         <div class="auth-tabs">
             <button class="auth-tab active" onclick="switchAuthTab('login')">Sign In</button>
             <button class="auth-tab" onclick="switchAuthTab('register')">Create Account</button>
         </div>
-
-        <!-- Login Form -->
         <div class="auth-form active" id="form-login">
             <div class="auth-error" id="login-error"></div>
             <label>Email</label>
@@ -195,12 +182,9 @@
             <label>Password</label>
             <input type="password" id="login-password" placeholder="Enter your password"/>
             <button class="btn btn-primary btn-full" onclick="login()">
-                <span class="spinner" id="login-spinner"></span>
-                Sign In
+                <span class="spinner" id="login-spinner"></span> Sign In
             </button>
         </div>
-
-        <!-- Register Form -->
         <div class="auth-form" id="form-register">
             <div class="auth-error" id="register-error"></div>
             <label>Full Name</label>
@@ -210,23 +194,20 @@
             <label>Password</label>
             <input type="password" id="register-password" placeholder="Create a password"/>
             <button class="btn btn-ai btn-full" onclick="register()">
-                <span class="spinner" id="register-spinner"></span>
-                Create Account
+                <span class="spinner" id="register-spinner"></span> Create Account
             </button>
         </div>
     </div>
 </div>
 
-<!-- App Shell -->
+<!-- App -->
 <div class="shell" id="app-shell">
     <aside class="sidebar">
         <div class="logo"><div class="logo-dot"></div>StudyMate</div>
-
         <div class="user-info">
             <div class="user-name" id="sidebar-name">Loading...</div>
             <div class="user-email" id="sidebar-email"></div>
         </div>
-
         <div class="nav-label">Menu</div>
         <button class="nav-btn active" onclick="showPanel('dashboard')">Dashboard</button>
         <button class="nav-btn" onclick="showPanel('create')">New Note</button>
@@ -234,9 +215,7 @@
         <button class="nav-btn" onclick="showPanel('notes'); loadNotes()">My Notes</button>
         <button class="nav-btn" onclick="showPanel('ai'); loadNotesForSelect()">AI Assistant</button>
         <button class="nav-btn" onclick="showPanel('chat'); loadNotesForSelect()">Chat</button>
-
         <button class="btn-logout" onclick="logout()">Sign Out</button>
-
         <div class="sidebar-footer">Powered by LLaMA 3</div>
     </aside>
 
@@ -268,7 +247,7 @@
                     <div style="text-align:center;padding:16px;"><div style="font-size:13px;font-weight:500;margin-bottom:4px;">Write Notes</div><div style="font-size:12px;color:var(--muted)">Add your study material</div></div>
                     <div style="text-align:center;padding:16px;"><div style="font-size:13px;font-weight:500;margin-bottom:4px;">Upload Files</div><div style="font-size:12px;color:var(--muted)">Import .txt or .pdf</div></div>
                     <div style="text-align:center;padding:16px;"><div style="font-size:13px;font-weight:500;margin-bottom:4px;">AI Summarizes</div><div style="font-size:12px;color:var(--muted)">Get key points fast</div></div>
-                    <div style="text-align:center;padding:16px;"><div style="font-size:13px;font-weight:500;margin-bottom:4px;">Chat with AI</div><div style="font-size:12px;color:var(--muted)">Ask anything</div></div>
+                    <div style="text-align:center;padding:16px;"><div style="font-size:13px;font-weight:500;margin-bottom:4px;">Interactive Quiz</div><div style="font-size:12px;color:var(--muted)">Test your knowledge</div></div>
                 </div>
             </div>
         </div>
@@ -336,12 +315,50 @@
                         <span class="spinner" id="summarize-spinner"></span> Summarize Note
                     </button>
                     <button class="btn btn-secondary" onclick="runAI('quiz')" style="border-color:var(--accent2);color:var(--accent2);">
-                        <span class="spinner" id="quiz-spinner"></span> Generate Quiz (10 Q)
+                        <span class="spinner" id="quiz-spinner"></span> Start Interactive Quiz
                     </button>
                 </div>
+
+                <!-- Summary result -->
                 <div class="ai-response" id="ai-response">
-                    <div class="ai-response-header" id="ai-response-header">AI Response</div>
+                    <div class="ai-response-header" id="ai-response-header">Summary</div>
                     <div class="ai-response-body" id="ai-response-body"></div>
+                </div>
+
+                <!-- Interactive Quiz -->
+                <div class="quiz-container" id="quiz-container">
+                    <div class="quiz-score">
+                        <div class="score-item">
+                            <div class="score-number" id="q-correct" style="color:var(--success)">0</div>
+                            <div class="score-label">Correct</div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-number" id="q-wrong" style="color:var(--danger)">0</div>
+                            <div class="score-label">Wrong</div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-number" id="q-total" style="color:var(--muted)">0</div>
+                            <div class="score-label">Total</div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-progress" id="quiz-progress">Question 1 of 5</div>
+
+                    <div class="question-card" id="question-card">
+                        <div class="question-text" id="question-text"></div>
+                        <div class="options-grid" id="options-grid"></div>
+                        <div class="feedback-box" id="feedback-box"></div>
+                        <div class="quiz-nav">
+                            <button class="btn btn-ai" id="submit-btn" onclick="submitAnswer()" disabled>Submit Answer</button>
+                            <button class="btn btn-secondary" id="next-btn" onclick="nextQuestion()" style="display:none;">Next Question</button>
+                        </div>
+                    </div>
+
+                    <div class="quiz-final" id="quiz-final">
+                        <div class="quiz-final-score" id="final-score"></div>
+                        <div class="quiz-final-label" id="final-label"></div>
+                        <button class="btn btn-ai" onclick="restartQuiz()">Try Again</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -349,15 +366,19 @@
         <!-- Chat -->
         <div class="panel" id="panel-chat">
             <div class="card">
-                <div class="card-title">Chat with AI</div>
+                <div class="card-title" style="display:flex;align-items:center;justify-content:space-between;">
+                    <span>Chat with AI</span>
+                    <button class="chat-clear" onclick="clearChat()">Clear conversation</button>
+                </div>
                 <label>Context Note (optional)</label>
                 <select id="chat-note-select" onchange="loadChatContext()">
                     <option value="">-- No context (general chat) --</option>
                 </select>
                 <div class="chat-box">
                     <div class="chat-messages" id="chat-messages">
-                        <div class="chat-msg ai">Hi! I am your study assistant. Ask me anything or select a note as context!</div>
+                        <div class="chat-msg ai">Hi! I am your study assistant. I remember our full conversation. Ask me anything!</div>
                     </div>
+                    <div class="chat-memory-badge" id="memory-badge">0 messages in memory</div>
                     <div class="chat-input-row">
                         <textarea class="chat-input" id="chat-input" placeholder="Ask me anything..."
                                   onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat()}"></textarea>
@@ -377,85 +398,63 @@
     let token = localStorage.getItem('token') || '';
     let currentUser = JSON.parse(localStorage.getItem('user') || 'null');
     let chatContext = '';
+    let chatHistory = []; // ← conversation memory
 
-    // ── Init ──
-    if (token && currentUser) {
-        showApp();
-    }
+    // Quiz state
+    let quizQuestions = [];
+    let currentQ = 0;
+    let selectedOption = null;
+    let correctCount = 0;
+    let wrongCount = 0;
+    let answered = false;
+
+    if (token && currentUser) showApp();
 
     function authHeaders() {
-        return {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        };
+        return { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` };
     }
 
     // ── Auth ──
     function switchAuthTab(tab) {
         document.querySelectorAll('.auth-tab').forEach((t, i) => {
-            t.classList.toggle('active', (tab === 'login' && i === 0) || (tab === 'register' && i === 1));
+            t.classList.toggle('active', (tab==='login'&&i===0)||(tab==='register'&&i===1));
         });
-        document.getElementById('form-login').classList.toggle('active', tab === 'login');
-        document.getElementById('form-register').classList.toggle('active', tab === 'register');
+        document.getElementById('form-login').classList.toggle('active', tab==='login');
+        document.getElementById('form-register').classList.toggle('active', tab==='register');
     }
 
     async function login() {
         const email = document.getElementById('login-email').value.trim();
         const password = document.getElementById('login-password').value;
-        const err = document.getElementById('login-error');
-        const spinner = document.getElementById('login-spinner');
+        if (!email || !password) { showAuthError('login','Please fill in all fields'); return; }
         const btn = document.querySelector('#form-login .btn');
-
-        if (!email || !password) { showAuthError('login', 'Please fill in all fields'); return; }
-
-        btn.disabled = true; spinner.classList.add('visible'); err.classList.remove('visible');
-
+        const spinner = document.getElementById('login-spinner');
+        btn.disabled = true; spinner.classList.add('visible');
         try {
-            const res = await fetch(`${API}/auth/login`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password })
-            });
+            const res = await fetch(`${API}/auth/login`, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email,password}) });
             const data = await res.json();
             if (data.error) { showAuthError('login', data.error); return; }
-            saveAuth(data);
-            showApp();
-            toast('Welcome back, ' + data.name + '!');
-        } catch(e) {
-            showAuthError('login', 'Connection failed. Is the backend running?');
-        } finally {
-            btn.disabled = false; spinner.classList.remove('visible');
-        }
+            saveAuth(data); showApp(); toast('Welcome back, ' + data.name + '!');
+        } catch(e) { showAuthError('login','Connection failed. Is the backend running?'); }
+        finally { btn.disabled=false; spinner.classList.remove('visible'); }
     }
 
     async function register() {
         const name = document.getElementById('register-name').value.trim();
         const email = document.getElementById('register-email').value.trim();
         const password = document.getElementById('register-password').value;
-        const spinner = document.getElementById('register-spinner');
+        if (!name||!email||!password) { showAuthError('register','Please fill in all fields'); return; }
+        if (password.length < 6) { showAuthError('register','Password must be at least 6 characters'); return; }
         const btn = document.querySelector('#form-register .btn');
-
-        if (!name || !email || !password) { showAuthError('register', 'Please fill in all fields'); return; }
-        if (password.length < 6) { showAuthError('register', 'Password must be at least 6 characters'); return; }
-
-        btn.disabled = true; spinner.classList.add('visible');
-
+        const spinner = document.getElementById('register-spinner');
+        btn.disabled=true; spinner.classList.add('visible');
         try {
-            const res = await fetch(`${API}/auth/register`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, email, password })
-            });
+            const res = await fetch(`${API}/auth/register`, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({name,email,password}) });
             const data = await res.json();
             if (data.error) { showAuthError('register', data.error); return; }
-            saveAuth(data);
-            showApp();
-            toast('Account created! Welcome, ' + data.name + '!');
-        } catch(e) {
-            showAuthError('register', 'Connection failed. Is the backend running?');
-        } finally {
-            btn.disabled = false; spinner.classList.remove('visible');
-        }
+            saveAuth(data); showApp(); toast('Welcome, ' + data.name + '!');
+        } catch(e) { showAuthError('register','Connection failed. Is the backend running?'); }
+        finally { btn.disabled=false; spinner.classList.remove('visible'); }
     }
 
     function saveAuth(data) {
@@ -467,8 +466,7 @@
 
     function showAuthError(form, msg) {
         const el = document.getElementById(form + '-error');
-        el.textContent = msg;
-        el.classList.add('visible');
+        el.textContent = msg; el.classList.add('visible');
     }
 
     function showApp() {
@@ -482,10 +480,8 @@
     }
 
     function logout() {
-        token = '';
-        currentUser = null;
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
+        token = ''; currentUser = null; chatHistory = [];
+        localStorage.removeItem('token'); localStorage.removeItem('user');
         document.getElementById('auth-screen').style.display = 'flex';
         document.getElementById('app-shell').classList.remove('visible');
         toast('Signed out successfully');
@@ -496,7 +492,7 @@
         document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
         document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
         document.getElementById('panel-' + name).classList.add('active');
-        const idx = {dashboard:0, create:1, upload:2, notes:3, ai:4, chat:5};
+        const idx = {dashboard:0,create:1,upload:2,notes:3,ai:4,chat:5};
         document.querySelectorAll('.nav-btn')[idx[name]].classList.add('active');
     }
 
@@ -504,32 +500,27 @@
         const c = document.getElementById('toast-container');
         const t = document.createElement('div');
         t.className = `toast ${type}`;
-        t.innerHTML = (type==='success' ? '&#10003; ' : '&#10007; ') + msg;
+        t.innerHTML = (type==='success'?'&#10003; ':'&#10007; ') + msg;
         c.appendChild(t);
         setTimeout(() => t.remove(), 3500);
     }
 
-    // ── Notes ──
+    // ── Notes CRUD ──
     async function createNote() {
         const title = document.getElementById('note-title').value.trim();
         const content = document.getElementById('note-content').value.trim();
-        if (!title || !content) { toast('Please fill in both fields', 'error'); return; }
+        if (!title||!content) { toast('Please fill in both fields','error'); return; }
         const btn = document.querySelector('#panel-create .btn-primary');
         const spinner = document.getElementById('create-spinner');
-        btn.disabled = true; spinner.classList.add('visible');
+        btn.disabled=true; spinner.classList.add('visible');
         try {
-            const res = await fetch(`${API}/notes`, {
-                method: 'POST',
-                headers: authHeaders(),
-                body: JSON.stringify({title, content})
-            });
+            const res = await fetch(`${API}/notes`, { method:'POST', headers:authHeaders(), body: JSON.stringify({title,content}) });
             const data = await res.json();
             document.getElementById('create-response-body').textContent = `Note "${data.title}" saved with ID: ${data.id}`;
             document.getElementById('create-response').classList.add('visible');
-            toast('Note saved!');
-            updateStats();
-        } catch(e) { toast('Could not connect to backend', 'error'); }
-        finally { btn.disabled = false; spinner.classList.remove('visible'); }
+            toast('Note saved!'); updateStats();
+        } catch(e) { toast('Could not connect to backend','error'); }
+        finally { btn.disabled=false; spinner.classList.remove('visible'); }
     }
 
     function clearForm() {
@@ -545,22 +536,15 @@
         const formData = new FormData();
         formData.append('file', file);
         try {
-            const res = await fetch(`${API}/upload`, {
-                method: 'POST',
-                headers: { 'Authorization': `Bearer ${token}` },
-                body: formData
-            });
+            const res = await fetch(`${API}/upload`, { method:'POST', headers:{'Authorization':`Bearer ${token}`}, body: formData });
             const data = await res.json();
-            if (data.error) {
-                toast('Upload failed: ' + data.error, 'error');
-            } else {
-                document.getElementById('upload-response-body').textContent =
-                    `File "${data.title}" uploaded as Note ID: ${data.noteId}`;
+            if (data.error) { toast('Upload failed: '+data.error,'error'); }
+            else {
+                document.getElementById('upload-response-body').textContent = `File "${data.title}" uploaded as Note ID: ${data.noteId}`;
                 document.getElementById('upload-response').classList.add('visible');
-                toast('File uploaded successfully!');
-                updateStats();
+                toast('File uploaded!'); updateStats();
             }
-        } catch(e) { toast('Upload failed: ' + e.message, 'error'); }
+        } catch(e) { toast('Upload failed: '+e.message,'error'); }
         zone.innerHTML = `<div class="upload-icon">&#128196;</div><div class="upload-title">Drop your file here</div><div class="upload-sub">or click to browse — supports .txt and .pdf files</div>`;
         document.getElementById('file-input').value = '';
     }
@@ -578,49 +562,40 @@
         try {
             const res = await fetch(`${API}/notes`, { headers: authHeaders() });
             const notes = await res.json();
-            if (notes.length === 0) {
-                grid.innerHTML = `<div class="empty-state"><div class="empty-state-icon">&#128237;</div><h3>No notes yet</h3><p>Create your first note</p></div>`;
-                return;
-            }
+            if (notes.length===0) { grid.innerHTML=`<div class="empty-state"><div class="empty-state-icon">&#128237;</div><h3>No notes yet</h3><p>Create your first note</p></div>`; return; }
             grid.innerHTML = notes.map(n => `
-        <div class="note-card">
-          <div class="note-card-title">${escHtml(n.title)}</div>
-          <div class="note-card-content">${escHtml(n.content)}</div>
-          <div class="note-card-footer">
-            <button class="btn btn-ai" onclick="quickAI(${n.id},'summarize')">Summarize</button>
-            <button class="btn btn-secondary" onclick="quickAI(${n.id},'quiz')">Quiz</button>
-            <button class="btn btn-secondary" onclick="chatWithNote(${n.id},'${escHtml(n.title)}')">Chat</button>
-            <button class="btn btn-danger" onclick="deleteNote(${n.id})">Delete</button>
-          </div>
-        </div>`).join('');
+                <div class="note-card">
+                    <div class="note-card-title">${escHtml(n.title)}</div>
+                    <div class="note-card-content">${escHtml(n.content)}</div>
+                    <div class="note-card-footer">
+                        <button class="btn btn-ai" onclick="quickAI(${n.id},'summarize')">Summarize</button>
+                        <button class="btn btn-secondary" onclick="quickAI(${n.id},'quiz')">Quiz</button>
+                        <button class="btn btn-secondary" onclick="chatWithNote(${n.id},'${escHtml(n.title)}')">Chat</button>
+                        <button class="btn btn-danger" onclick="deleteNote(${n.id})">Delete</button>
+                    </div>
+                </div>`).join('');
             updateStats(notes.length);
-        } catch(e) {
-            grid.innerHTML = `<div class="empty-state"><div class="empty-state-icon">&#9888;</div><h3>Connection Error</h3><p>Make sure Spring Boot is running on port 8080</p></div>`;
-        }
+        } catch(e) { grid.innerHTML=`<div class="empty-state"><div class="empty-state-icon">&#9888;</div><h3>Connection Error</h3><p>Make sure Spring Boot is running</p></div>`; }
     }
 
     async function quickAI(id, action) {
-        showPanel('ai');
-        await loadNotesForSelect();
+        showPanel('ai'); await loadNotesForSelect();
         document.getElementById('ai-note-select').value = id;
         runAI(action);
     }
 
     async function chatWithNote(id, title) {
-        showPanel('chat');
-        await loadNotesForSelect();
+        showPanel('chat'); await loadNotesForSelect();
         document.getElementById('chat-note-select').value = id;
-        await loadChatContext();
-        toast(`Chatting with context: ${title}`);
+        await loadChatContext(); toast('Chatting with context: '+title);
     }
 
     async function deleteNote(id) {
         if (!confirm('Delete this note?')) return;
         try {
-            await fetch(`${API}/notes/${id}`, { method: 'DELETE', headers: authHeaders() });
-            toast('Note deleted');
-            loadNotes();
-        } catch(e) { toast('Failed to delete', 'error'); }
+            await fetch(`${API}/notes/${id}`, { method:'DELETE', headers:authHeaders() });
+            toast('Note deleted'); loadNotes();
+        } catch(e) { toast('Failed to delete','error'); }
     }
 
     async function loadNotesForSelect() {
@@ -628,44 +603,185 @@
             const res = await fetch(`${API}/notes`, { headers: authHeaders() });
             const notes = await res.json();
             const opts = notes.map(n => `<option value="${n.id}">${escHtml(n.title)}</option>`).join('');
-            document.getElementById('ai-note-select').innerHTML =
-                '<option value="">-- Choose a note --</option>' + opts;
-            document.getElementById('chat-note-select').innerHTML =
-                '<option value="">-- No context (general chat) --</option>' + opts;
+            document.getElementById('ai-note-select').innerHTML = '<option value="">-- Choose a note --</option>'+opts;
+            document.getElementById('chat-note-select').innerHTML = '<option value="">-- No context (general chat) --</option>'+opts;
         } catch(e) {}
     }
 
     async function loadChatContext() {
         const id = document.getElementById('chat-note-select').value;
-        if (!id) { chatContext = ''; return; }
+        if (!id) { chatContext=''; return; }
         try {
             const res = await fetch(`${API}/notes/${id}`, { headers: authHeaders() });
             const note = await res.json();
             chatContext = note.content;
-        } catch(e) { chatContext = ''; }
+        } catch(e) { chatContext=''; }
     }
 
+    // ── AI: Summarize + Quiz ──
     async function runAI(action) {
         const id = document.getElementById('ai-note-select').value;
-        if (!id) { toast('Please select a note first', 'error'); return; }
-        const spinner = document.getElementById(action + '-spinner');
+        if (!id) { toast('Please select a note first','error'); return; }
+
+        const spinner = document.getElementById(action+'-spinner');
         const btns = document.querySelectorAll('#panel-ai .btn');
-        btns.forEach(b => b.disabled = true);
+        btns.forEach(b => b.disabled=true);
         spinner.classList.add('visible');
+
         document.getElementById('ai-response').classList.remove('visible');
-        document.getElementById('ai-response-header').textContent =
-            action === 'summarize' ? 'Summary' : 'Quiz (10 Questions)';
+        document.getElementById('quiz-container').classList.remove('visible');
+
         try {
-            const res = await fetch(`${API}/notes/${id}/${action}`, {
-                method: 'POST', headers: authHeaders()
+            const res = await fetch(`${API}/notes/${id}/${action}`, { method:'POST', headers:authHeaders() });
+            const data = await res.json();
+
+            if (action === 'summarize') {
+                document.getElementById('ai-response-header').textContent = 'Summary';
+                document.getElementById('ai-response-body').textContent = data.summary;
+                document.getElementById('ai-response').classList.add('visible');
+                toast('Summary ready!');
+            } else {
+                // Parse quiz JSON
+                try {
+                    let raw = data.quiz || '';
+                    raw = raw.replace(/```json/g,'').replace(/```/g,'').trim();
+                    const start = raw.indexOf('[');
+                    const end = raw.lastIndexOf(']');
+                    if (start !== -1 && end !== -1) raw = raw.substring(start, end+1);
+                    quizQuestions = JSON.parse(raw);
+                    startQuiz();
+                    toast('Quiz ready! Good luck!');
+                } catch(e) {
+                    // fallback: show raw text
+                    document.getElementById('ai-response-header').textContent = 'Quiz';
+                    document.getElementById('ai-response-body').textContent = data.quiz;
+                    document.getElementById('ai-response').classList.add('visible');
+                }
+            }
+        } catch(e) { toast('Request failed','error'); }
+        finally { btns.forEach(b => b.disabled=false); spinner.classList.remove('visible'); }
+    }
+
+    // ── Interactive Quiz Logic ──
+    function startQuiz() {
+        currentQ = 0; correctCount = 0; wrongCount = 0;
+        document.getElementById('q-correct').textContent = '0';
+        document.getElementById('q-wrong').textContent = '0';
+        document.getElementById('q-total').textContent = '0';
+        document.getElementById('quiz-final').classList.remove('visible');
+        document.getElementById('question-card').style.display = 'block';
+        document.getElementById('quiz-container').classList.add('visible');
+        showQuestion();
+    }
+
+    function showQuestion() {
+        if (currentQ >= quizQuestions.length) { showFinalScore(); return; }
+        const q = quizQuestions[currentQ];
+        answered = false; selectedOption = null;
+
+        document.getElementById('quiz-progress').textContent =
+            `Question ${currentQ+1} of ${quizQuestions.length}`;
+        document.getElementById('question-text').textContent = q.question;
+
+        const grid = document.getElementById('options-grid');
+        grid.innerHTML = q.options.map((opt, i) =>
+            `<button class="option-btn" onclick="selectOption(this, '${opt.charAt(0)}')">${opt}</button>`
+        ).join('');
+
+        document.getElementById('feedback-box').className = 'feedback-box';
+        document.getElementById('feedback-box').textContent = '';
+        document.getElementById('submit-btn').disabled = true;
+        document.getElementById('submit-btn').style.display = 'inline-flex';
+        document.getElementById('next-btn').style.display = 'none';
+    }
+
+    function selectOption(btn, letter) {
+        if (answered) return;
+        document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selectedOption = letter;
+        document.getElementById('submit-btn').disabled = false;
+    }
+
+    async function submitAnswer() {
+        if (!selectedOption || answered) return;
+        answered = true;
+
+        const q = quizQuestions[currentQ];
+        const isCorrect = selectedOption === q.answer;
+
+        if (isCorrect) correctCount++; else wrongCount++;
+        document.getElementById('q-correct').textContent = correctCount;
+        document.getElementById('q-wrong').textContent = wrongCount;
+        document.getElementById('q-total').textContent = correctCount + wrongCount;
+
+        // Highlight options
+        document.querySelectorAll('.option-btn').forEach(btn => {
+            btn.disabled = true;
+            const letter = btn.textContent.charAt(0);
+            if (letter === q.answer) btn.classList.add('correct');
+            else if (letter === selectedOption && !isCorrect) btn.classList.add('wrong');
+        });
+
+        document.getElementById('submit-btn').style.display = 'none';
+        document.getElementById('next-btn').style.display = 'inline-flex';
+
+        // Ask AI for feedback
+        const feedback = document.getElementById('feedback-box');
+        feedback.className = 'feedback-box ' + (isCorrect ? 'correct' : 'wrong');
+        feedback.textContent = 'Getting feedback...';
+
+        try {
+            const res = await fetch(`${API}/chat`, {
+                method: 'POST',
+                headers: authHeaders(),
+                body: JSON.stringify({
+                    message: `Quiz question: "${q.question}". Options: ${q.options.join(', ')}. Student answered: ${selectedOption}. Correct answer: ${q.answer}. Explanation: ${q.explanation}. Tell the student in 2-3 sentences if they are correct or wrong and why.`,
+                    context: '',
+                    history: []
+                })
             });
             const data = await res.json();
-            document.getElementById('ai-response-body').textContent =
-                data.summary || data.quiz || JSON.stringify(data, null, 2);
-            document.getElementById('ai-response').classList.add('visible');
-            toast(action === 'summarize' ? 'Summary ready!' : 'Quiz ready!');
-        } catch(e) { toast('Request failed', 'error'); }
-        finally { btns.forEach(b => b.disabled = false); spinner.classList.remove('visible'); }
+            feedback.textContent = data.response;
+        } catch(e) {
+            feedback.textContent = isCorrect
+                ? 'Correct! ' + q.explanation
+                : 'Wrong. The correct answer is ' + q.answer + '. ' + q.explanation;
+        }
+    }
+
+    function nextQuestion() {
+        currentQ++;
+        if (currentQ >= quizQuestions.length) showFinalScore();
+        else showQuestion();
+    }
+
+    function showFinalScore() {
+        document.getElementById('question-card').style.display = 'none';
+        const total = quizQuestions.length;
+        const pct = Math.round((correctCount / total) * 100);
+        document.getElementById('final-score').textContent = pct + '%';
+        document.getElementById('final-label').textContent =
+            `${correctCount} out of ${total} correct — ${pct >= 80 ? 'Excellent work!' : pct >= 60 ? 'Good effort!' : 'Keep studying!'}`;
+        document.getElementById('quiz-final').classList.add('visible');
+    }
+
+    function restartQuiz() {
+        startQuiz();
+    }
+
+    // ── Chat with Memory ──
+    function clearChat() {
+        chatHistory = [];
+        document.getElementById('chat-messages').innerHTML =
+            '<div class="chat-msg ai">Conversation cleared. Hi! Ask me anything!</div>';
+        updateMemoryBadge();
+        toast('Conversation cleared');
+    }
+
+    function updateMemoryBadge() {
+        document.getElementById('memory-badge').textContent =
+            chatHistory.length + ' messages in memory';
     }
 
     async function sendChat() {
@@ -673,20 +789,36 @@
         const msg = input.value.trim();
         if (!msg) return;
         input.value = '';
+
         const messages = document.getElementById('chat-messages');
         messages.innerHTML += `<div class="chat-msg user">${escHtml(msg)}</div>`;
-        messages.innerHTML += `<div class="chat-msg ai typing" id="typing">Thinking...</div>`;
+        messages.innerHTML += `<div class="chat-msg ai" id="typing">Thinking...</div>`;
         messages.scrollTop = messages.scrollHeight;
+
+        // Add to history BEFORE sending
+        chatHistory.push({ role: 'user', content: msg });
+
         try {
             const res = await fetch(`${API}/chat`, {
                 method: 'POST',
                 headers: authHeaders(),
-                body: JSON.stringify({message: msg, context: chatContext})
+                body: JSON.stringify({
+                    message: msg,
+                    context: chatContext,
+                    history: chatHistory.slice(0, -1) // send history without current msg
+                })
             });
             const data = await res.json();
+            const reply = data.response || 'No response';
+
+            // Add AI reply to history
+            chatHistory.push({ role: 'assistant', content: reply });
+
             document.getElementById('typing').remove();
-            messages.innerHTML += `<div class="chat-msg ai">${escHtml(data.response)}</div>`;
+            messages.innerHTML += `<div class="chat-msg ai">${escHtml(reply)}</div>`;
+            updateMemoryBadge();
         } catch(e) {
+            chatHistory.pop(); // remove failed message
             document.getElementById('typing').remove();
             messages.innerHTML += `<div class="chat-msg ai">Error connecting to server</div>`;
         }
@@ -694,10 +826,7 @@
     }
 
     async function updateStats(count) {
-        if (count !== undefined) {
-            document.getElementById('stat-notes').textContent = count;
-            return;
-        }
+        if (count !== undefined) { document.getElementById('stat-notes').textContent = count; return; }
         try {
             const res = await fetch(`${API}/notes`, { headers: authHeaders() });
             const notes = await res.json();
@@ -706,11 +835,7 @@
     }
 
     function escHtml(str) {
-        return String(str)
-            .replace(/&/g,'&amp;')
-            .replace(/</g,'&lt;')
-            .replace(/>/g,'&gt;')
-            .replace(/"/g,'&quot;');
+        return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 </script>
 </body>

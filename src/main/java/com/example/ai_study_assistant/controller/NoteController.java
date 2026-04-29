@@ -1,5 +1,5 @@
 package com.example.ai_study_assistant.controller;
-
+import java.util.List;
 import com.example.ai_study_assistant.model.Note;
 import com.example.ai_study_assistant.model.User;
 import com.example.ai_study_assistant.service.AiService;
@@ -75,10 +75,11 @@ public class NoteController {
 
     @PostMapping("/chat")
     public ResponseEntity<Map<String, String>> chat(
-            @RequestBody Map<String, String> payload) {
-        String message = payload.getOrDefault("message", "");
-        String context = payload.getOrDefault("context", "");
-        String response = aiService.chat(message, context);
+            @RequestBody Map<String, Object> payload) {
+        String message = (String) payload.getOrDefault("message", "");
+        String context = (String) payload.getOrDefault("context", "");
+        List<Map<String, String>> history = (List<Map<String, String>>) payload.getOrDefault("history", new java.util.ArrayList<>());
+        String response = aiService.chat(message, context, history);
         return ResponseEntity.ok(Map.of("response", response));
     }
 
