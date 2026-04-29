@@ -1,4 +1,4 @@
-# 🎓 AI Study Assistant
+#  AI Study Assistant
 ## 🎬 Demo
 
 
@@ -24,20 +24,20 @@
 
 ---
 
-## ✨ Features
+##  Features
 
 | Feature | Description |
 |--------|-------------|
-| 📝 **Note Management** | Create, view, and delete study notes with full CRUD support |
-| 📁 **File Upload** | Import `.txt` and `.pdf` files directly as notes |
-| 🤖 **AI Summarization** | Get instant AI-generated summaries with key points and definitions |
-| 🎯 **Quiz Generation** | Auto-generate 10 multiple-choice questions from any note |
-| 💬 **AI Chat** | Chat with LLaMA 3 using your notes as context |
-| 🎨 **Beautiful UI** | Premium dark interface with smooth animations |
+|  **Note Management** | Create, view, and delete study notes with full CRUD support |
+|  **File Upload** | Import `.txt` and `.pdf` files directly as notes |
+|  **AI Summarization** | Get instant AI-generated summaries with key points and definitions |
+|  **Quiz Generation** | Auto-generate 10 multiple-choice questions from any note |
+|  **AI Chat** | Chat with LLaMA 3 using your notes as context |
+|  **Beautiful UI** | Premium dark interface with smooth animations |
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Backend
 - **Java 21** — Latest LTS version
@@ -57,7 +57,7 @@
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -124,7 +124,7 @@ http://localhost:8080/index.html
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ai-study-assistant/
@@ -154,7 +154,7 @@ ai-study-assistant/
 
 ---
 
-## 📡 API Reference
+##  API Reference
 
 ### Notes
 
@@ -197,7 +197,7 @@ curl -X POST http://localhost:8080/api/chat \
 
 ---
 
-## 🗺️ Roadmap
+##  Roadmap
 
 - [x] Note CRUD
 - [x] PDF & TXT file upload
@@ -213,7 +213,7 @@ curl -X POST http://localhost:8080/api/chat \
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Feel free to:
 
@@ -225,13 +225,13 @@ Contributions are welcome! Feel free to:
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Wassim Ferchichi**
 
